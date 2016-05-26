@@ -35,21 +35,13 @@ public class AppJdbc {
 
             ResultSet result = cmd.executeQuery("select * from customer order by last_name;");
 
-            List<Customer> customers = new ArrayList<>();
+
 
             while (result.next()) {
-                Customer c = new Customer();
-                c.setFirst_Name(result.getString("first_name"));
-                c.setLast_Name(result.getString("last_name"));
-                c.setID(result.getInt("id"));
-                c.setCity(result.getString("cyty"));
-
-                customers.add(c);
+                System.out.println(result.getString("last_name"));
             }
 
-            for (Customer customer : customers) {
-                System.out.println(customer);
-            }
+
 
             result.close();
             connection.close();
